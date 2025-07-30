@@ -1,0 +1,95 @@
+# 🎯 Surefy Internship Event Management API
+## 🚀 Getting Started
+
+#Setup guide
+### ✅ Clone the Repository
+### ✅ Install Dependencies
+npm install
+### ✅ Run the Server
+npm start
+> Server runs at: http://localhost:3000
+
+
+## 🧠 API Descriptions
+
+### 1. Create Event
+- **Endpoint**: POST /events/createevent
+- **Request**:
+{
+  "title": "Mongodb",
+  "datetime": "2025-07-31T10:30:50.000Z",
+  "location": "Patna",
+  "capacity": "200"
+}
+- **Response**:
+{
+  "eventid": 4
+}
+
+### 2. Get Event by ID
+- **Endpoint**: GET /events/getevent/:id
+- **Example**: /events/getevent/3
+- **Response**:
+{
+  "id": 3,
+  "title": "SQL",
+  "datetime": "2025-08-01T12:30:00.000Z",
+  "location": "Noida",
+  "capacity": 10,
+  "registrations": [
+    {
+      "user_name": "rakesh",
+      "email": "rakesh@1234",
+      "event_title": "SQL",
+      "datetime": "2025-08-01T12:30:00.000Z",
+      "location": "Noida",
+      "capacity": 10
+    }
+  ]
+}
+
+### 3. Register for Event
+- **Endpoint**: POST /events/register
+- **Request**:
+{
+  "username": "Alpha",
+  "useremail": "alpha@123",
+  "eventid": "2"
+}
+- **Response**:
+{
+  "message": "User registered successfully"
+}
+
+### 4. List Upcoming Events
+- **Endpoint**: GET /events/upcoming
+- **Response**:
+{
+  "id": 2,
+  "title": "React",
+  "datetime": "2025-08-01T12:30:00.000Z",
+  "location": "Patna",
+  "capacity": 10
+}
+
+### 5. Event Statistics
+- **Endpoint**: GET /events/stats/:id
+- **Example**: /events/stats/2
+- **Response**:
+{
+  "TotalRegistrations": 8,
+  "RemainingCapacity": 2,
+  "PercentUsed": "80.00%"
+}
+
+### 6. Delete User Registration
+- **Endpoint**: POST /events/deletedata
+- **Request**:
+{
+  "email": "rakesh@1234",
+  "eventid": "1"
+}
+- **Response**:
+{
+  "message": "User not found in that event"
+}
